@@ -20,5 +20,5 @@ class Blog.Views.PostsNewView extends Backbone.View
    model = new Blog.Models.Post({title: title, content: content})
    @collection.create model,
         success: (post) =>
-       @model = post
-       window.location.hash = "/#{@model.id}"
+          @model = post
+          window.location.hash = "/#{@model.id}"
