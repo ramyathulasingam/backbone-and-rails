@@ -1,0 +1,145 @@
+== Welcome to Twitter Search.
+
+
+== Getting Started
+
+1. At the command prompt, create a new Rails application:
+       <tt>rails new twitter_search</tt> (where <tt>twitter search</tt> is the application name)
+
+2. Change directory to <tt>twitter_search</tt> and start the web server:
+       <tt>cd twitter_search; rails server</tt> (run with --help for options)
+
+3. Go to http://localhost:3000/ and you'll see:
+       "Welcome aboard: You're riding Ruby on Rails!
+
+ gem used in the application twitter, dancroak_twitter_search
+      <tt>sudo gem install twitter </tt>. 
+      <tt> sudo gem install dancroak-twitter-search -s http://gems.github.com /tt>
+
+== Application summary 
+
+The Application performs a search for the recent tweets in twitter and display's the search results.
+The Search is performed in the asynchronous fashion.
+
+#Initialize your Twitter client
+    client = TwitterSearch::Client.new('twitter_search')
+
+#query the database 
+    @tweets = client.query(:q => "#{params[:twitter]}", :page => 10, :rpp => 25)
+
+The code in the application.js is used for asynchronous data transfer.
+$(function () {  
+  $('#search').submit(function () {  
+    $.get(this.action, $(this).serialize(), null, 'script');  
+    return false;  
+  });  
+}); 
+
+== Description of Contents
+
+The default directory structure of a generated Ruby on Rails application:
+
+  |-- app
+  |   |-- assets
+  |       |-- images
+  |       |-- javascripts
+  |       `-- stylesheets
+  |   |-- controllers
+  |   |-- helpers
+  |   |-- mailers
+  |   |-- models
+  |   `-- views
+  |       `-- layouts
+  |-- config
+  |   |-- environments
+  |   |-- initializers
+  |   `-- locales
+  |-- db
+  |-- doc
+  |-- lib
+  |   `-- tasks
+  |-- log
+  |-- public
+  |-- script
+  |-- test
+  |   |-- fixtures
+  |   |-- functional
+  |   |-- integration
+  |   |-- performance
+  |   `-- unit
+  |-- tmp
+  |   |-- cache
+  |   |-- pids
+  |   |-- sessions
+  |   `-- sockets
+  `-- vendor
+      |-- assets
+          `-- stylesheets
+      `-- plugins
+
+app
+  Holds all the code that's specific to this particular application.
+
+app/assets
+  Contains subdirectories for images, stylesheets, and JavaScript files.
+
+app/controllers
+  Holds controllers that should be named like weblogs_controller.rb for
+  automated URL mapping. All controllers should descend from
+  ApplicationController which itself descends from ActionController::Base.
+
+app/models
+  Holds models that should be named like post.rb. Models descend from
+  ActiveRecord::Base by default.
+
+app/views
+  Holds the template files for the view that should be named like
+  weblogs/index.html.erb for the WeblogsController#index action. All views use
+  eRuby syntax by default.
+
+app/views/layouts
+  Holds the template files for layouts to be used with views. This models the
+  common header/footer method of wrapping views. In your views, define a layout
+  using the <tt>layout :default</tt> and create a file named default.html.erb.
+  Inside default.html.erb, call <% yield %> to render the view using this
+  layout.
+
+app/helpers
+  Holds view helpers that should be named like weblogs_helper.rb. These are
+  generated for you automatically when using generators for controllers.
+  Helpers can be used to wrap functionality for your views into methods.
+
+config
+  Configuration files for the Rails environment, the routing map, the database,
+  and other dependencies.
+
+db
+  Contains the database schema in schema.rb. db/migrate contains all the
+  sequence of Migrations for your schema.
+
+doc
+  This directory is where your application documentation will be stored when
+  generated using <tt>rake doc:app</tt>
+
+lib
+  Application specific libraries. Basically, any kind of custom code that
+  doesn't belong under controllers, models, or helpers. This directory is in
+  the load path.
+
+public
+  The directory available for the web server. Also contains the dispatchers and the
+  default HTML files. This should be set as the DOCUMENT_ROOT of your web
+  server.
+
+script
+  Helper scripts for automation and generation.
+
+test
+  Unit and functional tests along with fixtures. When using the rails generate
+  command, template test files will be generated for you and placed in this
+  directory.
+
+vendor
+  External libraries that the application depends on. Also includes the plugins
+  subdirectory. If the app has frozen rails, those gems also go here, under
+  vendor/rails/. This directory is in the load path.

@@ -1,0 +1,45 @@
+body{
+background-color:#E6E6E6;
+}
+h1{
+color:black;
+font-size:10;
+style:italics;
+text-align:center;
+}
+td
+{
+height:30px;
+}
+
+.pg-normal {
+color: black;
+font-weight: normal;
+text-decoration: none;
+cursor: pointer;
+}
+.pg-selected {
+color: black;
+font-weight: bold;
+text-decoration: underline;
+cursor: pointer;
+}
+
+
+#search-table .list-line-even {
+  background:   #ccffff;
+  border-width: 6px;
+}
+
+#search-table .list-line-odd {
+  background:  #66ffcc;
+  border-width: 6px;
+
+}
+
+
+
+
+// Place all the styles related to the Twitter controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/

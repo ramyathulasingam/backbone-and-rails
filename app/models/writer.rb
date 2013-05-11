@@ -1,2 +1,0 @@
-class Writer < Occupation
-end

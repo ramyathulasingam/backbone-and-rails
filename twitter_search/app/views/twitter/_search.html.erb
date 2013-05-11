@@ -1,0 +1,13 @@
+<% unless @tweets.blank? %>
+<div id="search_list">
+	<table id = 'search_list_page' align = "center">
+		<% @tweets.each do |i| %>
+		<tr valign = "top" class= "<%= cycle('list-line-odd', 'list-line-even') %>">
+			<td><%= link_to i.from_user, "http://twitter.com/#{i.from_user}", :class => "username", :target => "_blank" %></td>
+			<td><%= i.text %></td>
+			<td><%= time_ago_in_words i.created_at %></td>
+		</tr>
+		<%end%>
+	</table>
+</div>
+<%end%>
